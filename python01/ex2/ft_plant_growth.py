@@ -9,7 +9,7 @@ class Garden(Plant):
     def __init__(self, name: str, height: float, days: int):
         super().__init__(name, height, days)
 
-    def grow(self, cm: float = 0.8):
+    def grow(self, cm: float):
         self.height = round(self.height + cm, 2)
 
     def age(self, add: int = 1):
@@ -21,15 +21,12 @@ def ft_plant_growth():
 
     rose = Garden("Rose", 25.0, 30)
     initial_height = rose.height
-
     rose.show()
 
     for day in range(1, 8):
         print(f"=== Day {day} ===")
-
-        rose.grow()
+        rose.grow(0.8)
         rose.age()
-
         rose.show()
 
     total_growth = rose.height - initial_height
