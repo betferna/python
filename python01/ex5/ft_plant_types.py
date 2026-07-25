@@ -1,40 +1,4 @@
-class Plant:
-    def __init__(self, name: str, height: float, age: int):
-        self._name = name
-
-        if height < 0:
-            print(f"{self._name}: Error, height can't be negative")
-            self._height = 0.0
-        else:
-            self._height = float(height)
-
-        if age < 0:
-            print(f"{self._name}: Error, age can't be negative")
-            self._age = 0
-        else:
-            self._age = int(age)
-
-    # Getters / Setters
-    def get_name(self) -> str:
-        return self._name
-
-    def get_height(self) -> float:
-        return self._height
-
-    def get_age(self) -> int:
-        return self._age
-
-    def grow(self, cm: float = 1.0):
-        if cm > 0:
-            self._height += cm
-
-    def set_age(self, days: int):
-        if days >= 0:
-            self._age = days
-
-    def show(self):
-        """Muestra la información base común a todas las plantas."""
-        print(f"{self._name}: {round(self._height, 1)}cm, {self._age} days old")
+from ft_garden_security import Plant
 
 
 class Flower(Plant):
