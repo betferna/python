@@ -1,58 +1,53 @@
-from ft_garden_security import Plant
+import sys
+import os
+sys.path.append(os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../ex4")))
+from ft_garden_security import PlantSecurity
 
 
-class Flower(Plant):
-    def __init__(self, name: str, height: float, age: int, color: str):
-        super().__init__(name, height, age)
+class Flower(PlantSecurity):
+    def __init__(self, name: str, height: float, days: int, color: str):
+        super().__init__(name, height, days)
         self.color = color
-        self._is_blooming = False
+        self._bloom = False
 
     def bloom(self):
-        self._is_blooming = True
-
-    def show(self):
-        super().show()
-        print(f"Color: {self.color}")
-        if self._is_blooming:
-            print(f"{self._name} is blooming beautifully!")
-        else:
-            print(f"{self._name} has not bloomed yet")
+        self._bloom = True
 
 
-class Tree(Plant):
-    def __init__(self, name: str, height: float, age: int, trunk_diameter: float):
-        super().__init__(name, height, age)
+class Tree(PlantSecurity):
+    def __init__(
+        self, name: str, height: float,
+        days: int, trunk_diameter: float
+    ):
+        super().__init__(name, height, days)
         self.trunk_diameter = trunk_diameter
+        self._shade = False
 
     def produce_shade(self):
-        print(
-            f"Tree {self._name} now produces a shade of "
-            f"{round(self._height, 1)}cm long and {round(self.trunk_diameter, 1)}cm wide."
-        )
-
-    def show(self):
-        super().show()
-        print(f"Trunk diameter: {round(self.trunk_diameter, 1)}cm")
+        self.shade = True
 
 
-class Vegetable(Plant):
-    def __init__(self, name: str, height: float, age: int, harvest_season: str):
-        super().__init__(name, height, age)
+class Vegetable(PlantSecurity):
+    def __init__(
+        self, name: str, height: float, days: int,
+        harvest_season: str
+    ):
+        super().__init__(name, height, days)
         self.harvest_season = harvest_season
         self.nutritional_value = 0
 
-    def grow(self, cm: float = 1.0):
-        super().grow(cm)
-        self.nutritional_value += int(cm)
+    def grow(self, cm: float):
+        self.height = round(self.height + cm, 2)
 
-    def age_up(self, days: int):
-        self.set_age(self._age + days)
-        self.nutritional_value += days
+    def age(self, add: int = 1):
+        self.days += add
+        self.nutritional_value += add
 
     def show(self):
         super().show()
-        print(f"Harvest season: {self.harvest_season}")
-        print(f"Nutritional value: {self.nutritional_value}")
+        print(f"  Harvest season: {self.harvest_season}")
+        print(f"  Nutritional value: {self.nutritional_value}")
 
 
 def ft_plant_types():
@@ -79,7 +74,7 @@ def ft_plant_types():
 
     print("[make tomato grow and age for 20 days]")
     tomato.grow(42.0)
-    tomato.age_up(20)
+    tomato.age(20)
     tomato.show()
 
 
