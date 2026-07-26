@@ -1,9 +1,13 @@
+#!/usr/bin/env python3
+
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../ex1")))
+sys.path.append(os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../ex1")))
 
 from ft_garden_data import Plant
+
 
 class Garden(Plant):
     def __init__(self, name: str, height: float, days: int):
@@ -31,7 +35,6 @@ def ft_plant_growth():
 
     total_growth = rose.height - initial_height
     print(f"Growth this week: {round(total_growth, 2)}cm")
-
 
 
 if __name__ == "__main__":

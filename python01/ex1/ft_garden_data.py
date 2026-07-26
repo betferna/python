@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Plant:
     def __init__(self, name: str, height: float, days: int):
         self.name = name
@@ -8,19 +10,16 @@ class Plant:
         print(f"{self.name}: {self.height}cm, {self.days} days old")
 
 
-
-def ft_garden_data(plant_list: list[Plant]) -> None:
-    for plant in plant_list:
-        plant.show()
-
 def main():
     print("=== Garden Plant Registry ===")
-    plants: list[Plant] = [
-        Plant("Rose", 25, 30),
-        Plant("Sunflower", 80, 45),
-        Plant("Cactus", 15, 120)
-    ]
-    ft_garden_data(plants)
+
+    plant1 = Plant("Rose", 25, 30)
+    plant2 = Plant("Sunflower", 80, 45)
+    plant3 = Plant("Cactus", 15, 120)
+
+    plant1.show()
+    plant2.show()
+    plant3.show()
 
 
 if __name__ == '__main__':
