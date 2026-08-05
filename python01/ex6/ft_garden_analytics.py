@@ -33,17 +33,14 @@ class Plant:
         else:
             self._age = int(age)
 
-    # --- Métodos Estáticos y de Clase ---
     @staticmethod
     def is_older_than_year(age: int) -> bool:
         return age > 365
 
     @classmethod
     def anonymous(cls):
-        """Crea una planta genérica cuando no tenemos suficiente información."""
         return cls("Unknown plant", 0.0, 0)
 
-    # --- Comportamiento y Métodos ---
     def grow(self, cm: float = 1.0):
         if cm > 0:
             self._height += cm
