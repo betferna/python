@@ -1,29 +1,25 @@
 #!/usr/bin/env python3
 
-import sys
-import os
+class Plant:
+    def __init__(self, name: str, height: float, days: int) -> None:
+        self.name = name
+        self.height = height
+        self.days = days
 
-sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../ex1")))
+    def show(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.days} days old")
 
-from ft_garden_data import Plant
-
-
-class Garden(Plant):
-    def __init__(self, name: str, height: float, days: int):
-        super().__init__(name, height, days)
-
-    def grow(self, cm: float):
+    def grow(self, cm: float) -> None:
         self.height = round(self.height + cm, 2)
 
-    def age(self, add: int = 1):
+    def age(self, add: int = 1) -> None:
         self.days += add
 
 
-def ft_plant_growth():
+def ft_plant_growth() -> None:
     print("=== Garden Plant Growth ===")
 
-    rose = Garden("Rose", 25.0, 30)
+    rose = Plant("Rose", 25.0, 30)
     initial_height = rose.height
     rose.show()
 

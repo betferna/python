@@ -1,31 +1,31 @@
 #!/usr/bin/env python3
-import sys
-import os
 
-sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../ex1")))
-
-from ft_garden_data import Plant
-
-
-class PlantSecurity(Plant):
-    def __init__(self, name: str, height: float, days: int):
-        super().__init__(name, height, days)
+class Plant:
+    def __init__(self, name: str, height: float, days: int) -> None:
         self._name = name
         self._height = height
         self._days = days
 
-        if height < 0:
+    def show(self) -> None:
+        print(f"{self._name}: {self._height}cm, {self._days} days old")
+
+    def grow(self, cm: float) -> None:
+        self._height = round(self._height + cm, 2)
+
+    def age(self, add: int = 1) -> None:
+        self._days += add
+
+        if self._height < 0:
             print(f"{self._name}: Error, height can't be negative")
             self._height = 0.0
         else:
-            self._height = float(height)
+            self._height = float(self._height)
 
-        if days < 0:
+        if self._days < 0:
             print(f"{self._name}: Error, age can't be negative")
             self._days = 0
         else:
-            self._days = int(days)
+            self._days = int(self._days)
 
     def get_name(self) -> str:
         return self._name
@@ -36,7 +36,7 @@ class PlantSecurity(Plant):
     def get_age(self) -> int:
         return self._days
 
-    def set_height(self, new_height: float):
+    def set_height(self, new_height: float) -> None:
         if new_height < 0:
             print(f"{self._name}: Error, height can't be negative")
             print("Height update rejected")
@@ -44,7 +44,7 @@ class PlantSecurity(Plant):
             self._height = float(new_height)
             print(f"Height updated: {round(self._height)}cm")
 
-    def set_age(self, new_age: int):
+    def set_age(self, new_age: int) -> None:
         if new_age < 0:
             print(f"{self._name}: Error, age can't be negative")
             print("Age update rejected\n")
@@ -53,10 +53,10 @@ class PlantSecurity(Plant):
             print(f"Age updated: {self._days} days\n")
 
 
-def ft_garden_security():
+def ft_garden_security() -> None:
     print("=== Garden Security System ===")
 
-    plant = PlantSecurity("Rose", 15.0, 10)
+    plant = Plant("Rose", 15.0, 10)
     print(
         f"Plant created: {plant._name}: {round(plant._height, 1)}cm, "
         f"{plant._days} days old\n"

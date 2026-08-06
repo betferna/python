@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name: str, height: float, days: int):
+    def __init__(self, name: str, height: float, days: int) -> None:
         self.name = name
         self.height = height
         self.days = days
@@ -10,7 +10,7 @@ class Plant:
         print(f"{self.name}: {self.height}cm, {self.days} days old")
 
 
-def main():
+def main() -> None:
     print("=== Garden Plant Registry ===")
 
     plant1 = Plant("Rose", 25, 30)
