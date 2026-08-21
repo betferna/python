@@ -1,12 +1,13 @@
 #!/bin/usr/env python3
 
-def input_temperature(temp_str) -> None:
+def input_temperature(temp_str: str) -> None:
     try:
         print(f"Input data is '{int(temp_str)}'")
         print(f"Temperature is now {int(temp_str)}*C\n")
     except ValueError:
         print(f"Input data is '{temp_str}'")
-        print("Caught input_temperature error: invalid literal for int() with base 10: 'abc'\n")
+        print("Caught input_temperature error: "
+              "invalid literal for int() with base 10: 'abc'\n")
 
 
 def test_temperature() -> None:

@@ -1,20 +1,23 @@
 #!/bin/urs/env python3
 
-def input_temperature(temp_str) -> None:
+def input_temperature(temp_str: str) -> None:
     try:
         temperature = int(temp_str)
     except ValueError:
         print(f"Input data is '{temp_str}'")
-        print("Caught input_temperature error: invalid literal for int() with base 10: 'abc'\n")
+        print("Caught input_temperature error: "
+              "invalid literal for int() with base 10: 'abc'\n")
         return
 
     print(f"Input data is '{temperature}'")
 
     if temperature < 0:
-        print(f"Caught input_temperature error: {temperature}°C is too cold for plants (min 0°C)\n")
+        print(f"Caught input_temperature error: "
+              f"{temperature}°C is too cold for plants (min 0°C)\n")
 
     elif temperature > 40:
-        print(f"Caught input_temperature error: {temperature}°C is too hot for plants (max 40°C)\n")
+        print(f"Caught input_temperature error: "
+              f"{temperature}°C is too hot for plants (max 40°C)\n")
 
     else:
         print(f"Temperature is now {temperature}*C\n")
