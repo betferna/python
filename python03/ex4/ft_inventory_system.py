@@ -59,10 +59,12 @@ def main() -> None:
                 least_abundant = item
 
         print(
-            f"Item most abundant: {most_abundant} with quantity {inventory[most_abundant]}"
+            f"Item most abundant: {most_abundant} with quantity {
+                inventory[most_abundant]}"
         )
         print(
-            f"Item least abundant: {least_abundant} with quantity {inventory[least_abundant]}"
+            f"Item least abundant: {least_abundant} with quantity {
+                inventory[least_abundant]}"
         )
 
     inventory.update({"magic_item": 1})
