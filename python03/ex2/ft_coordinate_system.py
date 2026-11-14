@@ -8,6 +8,7 @@ def get_player_pos():
         try:
             user_input = input(
                 "Enter new coordinates as floats in format 'x,y,z': ")
+            parts = user_input.split(',')
             # coordinates = tuple(float(x) for x in user_input
             comas = 0
             coord = [None, None, None]
@@ -24,12 +25,20 @@ def get_player_pos():
                 coord[comas] = string
             coordinates = tuple(float(val) for val in coord)
             break
+        except ValueError:
+        # If conversion fails, find which specific parameter caused the error
+            for part in parts:
+                clean_part = part.strip()
+                try:
+                    float(clean_part)
+                except ValueError:
+                    print(f"Error on parameter '{clean_part}': could not convert string to float: '{clean_part}'")
         except Exception:
-            print("Invalid syntax")
-            print(
-                "Enter new coordinates as "
-                "floats in format 'x,y,z': 1.0 , 2.5, 3.0"
-                )
+                    print("Invalid syntax")
+                    print(
+                        "Enter new coordinates as "
+                        "floats in format 'x,y,z': 1.0 , 2.5, 3.0"
+                        )  
     return coordinates
 
 
@@ -48,7 +57,7 @@ if __name__ == "__main__":
         (0 - coordinate1[1])**2 +
         (0 - coordinate1[2])**2
         )
-    print(f"Distance to center: {distance}")
+    print(f"Distance to center: {distance:.4f}")
     print("\nGet a second set of coordinates")
     coordinate2 = get_player_pos()
     distance = math.sqrt((coordinate1[0] -
@@ -57,4 +66,4 @@ if __name__ == "__main__":
                           coordinate2[1])**2 +
                          (coordinate1[2] -
                           coordinate2[2])**2)
-    print(f"Distance between the 2 sets of coordinates: {distance}")
+    print(f"Distance between the 2 sets of coordinates: {distance:.4f}")
