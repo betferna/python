@@ -19,7 +19,9 @@ def score_analytics():
                     print(f"Invalid parameter '{sys.argv[i]}'")
                 print(
                     "No scores provided. "
-                    "Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+                    f"Usage: python3 {sys.argv[0]} "
+                    "<score1> <score2> ..."
+                )
                 return
 
         total_score = 0

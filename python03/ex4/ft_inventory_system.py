@@ -46,7 +46,7 @@ def main() -> None:
     if total_qty > 0:
         for item, qty in inventory.items():
             percentage = round((qty / total_qty) * 100, 1)
-            print(f"Item {item} represents {percentage:.1f}%")
+            print(f"Item {item} represents {percentage: .1f}%")
 
     if inventory:
         most_abundant = None

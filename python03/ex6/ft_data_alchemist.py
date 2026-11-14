@@ -3,7 +3,7 @@ import random
 
 
 def main() -> None:
-    print("=== Game Data Alchemist ===")
+    print("=== Game Data Alchemist ===\n")
 
     initial_players = [
         "Alice",
@@ -16,16 +16,16 @@ def main() -> None:
         "kevin",
         "Liam",
     ]
-    print(f"Initial list of players: {initial_players}")
+    print(f"Initial list of players: {initial_players}\n")
 
     all_capitalized = [name.capitalize() for name in initial_players]
-    print(f"New list with all names capitalized: {all_capitalized}")
+    print(f"New list with all names capitalized: {all_capitalized}\n")
 
     capitalized_only = [name for name in initial_players if name.istitle()]
-    print(f"New list of capitalized names only: {capitalized_only}")
+    print(f"New list of capitalized names only: {capitalized_only}\n")
 
     scores = {name: random.randint(50, 1000) for name in all_capitalized}
-    print(f"Score dict: {scores}")
+    print(f"Score dict: {scores}\n")
 
     avg_score = round(sum(scores.values()) / len(scores), 2)
     print(f"Score average is {avg_score}")
